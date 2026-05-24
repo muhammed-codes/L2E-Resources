@@ -2,7 +2,7 @@
 
 Use the interactive Go playground below to test snippets, experiment with concepts, and practice while learning:
 
-🌐 :contentReference[oaicite:0]{index=0}
+🌐 :https://go-learning-lab.vercel.app/
 
 Perfect for:
 
