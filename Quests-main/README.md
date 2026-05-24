@@ -1,6 +1,6 @@
->># PROMPT-PISCINE TutorVault Folder available for personal guides - Go check it OUT!!!
-## GO TO LEARN QUEST4: try to understand the simpler explanations and prepare for checkpoint 2
+> > # PROMPT-PISCINE TutorVault Folder available for personal guides - Go check it OUT!!!
 
+## GO TO LEARN QUEST4: try to understand the simpler explanations and prepare for checkpoint 2
 
 # 🧠 Piscine-Go Shell & Command Line Quests 1 Solutions
 
@@ -10,6 +10,7 @@ Each task focuses on building Unix command fluency, data parsing, and problem-so
 ---
 
 ## 🔍 `look`
+
 **Objective:**  
 Search from the current directory and its subfolders for all `.sh` files and display their names (with the `.sh` extension included).
 
@@ -17,6 +18,7 @@ Search from the current directory and its subfolders for all `.sh` files and dis
 `find`, basic shell redirection
 
 **Final solution:**
+
 ```bash
 #!/bin/bash
 find . \( \
@@ -33,6 +35,7 @@ find . \( \
 **Task:** Extract relatives information for a superhero by ID from a JSON API.
 
 **File:** `myfamily.sh`
+
 ```bash
 #!/bin/bash
 
@@ -43,12 +46,14 @@ curl -s https://acad.learn2earn.ng/assets/superhero/all.json | \
 ```
 
 **Usage:**
+
 ```bash
 export HERO_ID=1
 ./myfamily.sh
 ```
 
 **Key Points:**
+
 - Uses `curl -s` to silently fetch JSON
 - Uses `jq` to parse JSON and filter by ID
 - Path is `.connections.relatives` (not just `.relatives`)
@@ -61,6 +66,7 @@ export HERO_ID=1
 **Task:** Find all `.sh` files, show only filenames (no path, no extension), sorted descending.
 
 **File:** `lookagain.sh`
+
 ```bash
 #!/bin/bash
 
@@ -69,11 +75,13 @@ find . -type f -name "*.sh" -exec basename {} \; | cut -d'.' -f1 | sort -r
 ```
 
 **Usage:**
+
 ```bash
 ./lookagain.sh | cat -e
 ```
 
 **Key Points:**
+
 - `find . -type f -name "*.sh"` finds all shell scripts
 - `basename` extracts just the filename (no path)
 - `cut -d'.' -f1` removes the `.sh` extension
@@ -86,6 +94,7 @@ find . -type f -name "*.sh" -exec basename {} \; | cut -d'.' -f1 | sort -r
 **Task:** Count total number of files and folders (including current directory).
 
 **File:** `countfiles.sh`
+
 ```bash
 #!/bin/bash
 
@@ -94,11 +103,13 @@ find . | wc -l
 ```
 
 **Usage:**
+
 ```bash
 ./countfiles.sh | cat -e
 ```
 
 **Key Points:**
+
 - `find .` lists everything including `.` (current directory)
 - `wc -l` counts the lines (total items)
 
@@ -109,11 +120,13 @@ find . | wc -l
 **Task:** Create a file named `"\?$*'ChouMi'*$?\"` containing `01`
 
 **Command (for Linux/Mac/WSL):**
+
 ```bash
 echo -n "01" > '"\?$*'ChouMi'*$?\"'
 ```
 
 **Alternative Methods:**
+
 ```bash
 # Using printf
 printf "01" > '"\?$*'ChouMi'*$?\"'
@@ -129,6 +142,7 @@ EOF
 **Task:** Print `ls -l` output, showing every other line starting with the first.
 
 **File:** `skip.sh`
+
 ```bash
 #!/bin/bash
 
@@ -137,6 +151,7 @@ ls -l | awk 'NR % 2 == 1'
 ```
 
 **Alternative using sed:**
+
 ```bash
 #!/bin/bash
 
@@ -144,17 +159,20 @@ ls -l | sed -n 'p;n'
 ```
 
 **Usage:**
+
 ```bash
 ./skip.sh
 ```
 
 **Key Points:**
+
 - `ls -l` lists files in long format
 - `awk 'NR % 2 == 1'` prints only odd-numbered lines (1, 3, 5, ...)
 - `NR` is the line number in awk
 - `NR % 2 == 1` means "line number modulo 2 equals 1" (odd lines)
 
 ---
+
 ## 6. 🕵️‍♂️ the-final-cl-test (Murder Mystery)
 
 Objective:
@@ -201,6 +219,7 @@ Key witness:
 
 Witness: Annabel Church
 ```
+
 Conclusion:
 The murderer is Dartey Henv — tall male, blue Honda, L337…9, wallet matches clues.
 
@@ -211,18 +230,21 @@ The murderer is Dartey Henv — tall male, blue Honda, L337…9, wallet matches 
 
 echo "Dartey Henv"
 ```
+
 ---
+
 ## 7. 🧾 `explain.sh`
 
 **Objective:**  
 Summarize how the case was solved, showing:
 
-1. The key witness’s name  
-2. Her interview number  
-3. The car color and make of the main suspect  
+1. The key witness’s name
+2. Her interview number
+3. The car color and make of the main suspect
 4. The 3 other suspects not arrested (in alphabetical order of last name)
 
 **Final output:**
+
 ```bash
 #!/bin/bash
 
@@ -234,7 +256,9 @@ echo "Hellen Maher"
 echo "Erika Owens"
 echo ""
 ```
+
 ---
+
 ## 8.🧑‍🏫 `teacher.sh`
 
 **Objective:**  
@@ -258,6 +282,7 @@ Automate the process of identifying and displaying the key evidence used to solv
 ---
 
 **Final Output Example:**
+
 ```
 699607
 Interviewed Ms. Church at 2:04 pm. Witness stated that she did not see anyone she could identify as the shooter, that she ran away as soon as the shots were fired.
@@ -269,6 +294,7 @@ Dartey Henv
 ---
 
 **Final Solution:**
+
 ```bash
 #!/usr/bin/env bash
 
@@ -284,9 +310,11 @@ cat mystery/interviews/interview-"$INTERVIEW"
 # Step 4: Print the content of the environment variable MAIN_SUSPECT
 echo "$MAIN_SUSPECT"
 ```
+
 ---
 
 ## How to Push to GitHub
+
 ```bash
 # Make all scripts executable
 chmod +x myfamily.sh lookagain.sh countfiles.sh skip.sh
@@ -306,11 +334,13 @@ git push origin main
 ## Quick Reference Commands
 
 ### Make scripts executable:
+
 ```bash
 chmod +x *.sh
 ```
 
 ### Test individual scripts:
+
 ```bash
 # Test myfamily.sh
 export HERO_ID=1
@@ -327,8 +357,9 @@ export HERO_ID=1
 ```
 
 ### Clean up test files:
+
 ```bash
-rm -f file_name # Remove the test file created 
+rm -f file_name # Remove the test file created
 ```
 
 ---
@@ -336,13 +367,17 @@ rm -f file_name # Remove the test file created
 ## Troubleshooting
 
 ### Issue: "Permission denied"
+
 **Solution:**
+
 ```bash
 chmod +x script_name.sh
 ```
 
 ### Issue: jq command not found
+
 **Solution:**
+
 ```bash
 # Ubuntu/Debian
 sudo apt-get install jq
@@ -350,47 +385,57 @@ sudo apt-get install jq
 ```
 
 ### Issue: Special character filename won't create on Windows
+
 **Solution:** Use WSL or test on Linux system. Windows filesystem doesn't support `\`, `?`, `*`, `"` in filenames.
 
 ---
 
 ## Summary
 
-| Script | Purpose | Key Tools |
-|--------|---------|-----------|
-| myfamily.sh | Extract superhero relatives from JSON API | curl, jq, sed |
-| lookagain.sh | List .sh files without extension, sorted | find, basename, cut, sort |
-| countfiles.sh | Count all files and directories | find, wc |
-| Special file | Create file with special characters | echo, special quoting |
-| skip.sh | Show every other line from ls -l | ls, awk |
+| Script        | Purpose                                   | Key Tools                 |
+| ------------- | ----------------------------------------- | ------------------------- |
+| myfamily.sh   | Extract superhero relatives from JSON API | curl, jq, sed             |
+| lookagain.sh  | List .sh files without extension, sorted  | find, basename, cut, sort |
+| countfiles.sh | Count all files and directories           | find, wc                  |
+| Special file  | Create file with special characters       | echo, special quoting     |
+| skip.sh       | Show every other line from ls -l          | ls, awk                   |
 
 ---
 
 **All scripts are ready to push! 🚀**
+
 # 🧠 Piscine-Go Quests 2 Solutions
-  
+
 All work is submitted from the root repo: `piscine-go`.
 
 ---
 
 ## 🔧 One-Time Setup (do this once in `piscine-go`)
+
 ```bash
 go mod init piscine
 go get github.com/01-edu/z01
 go mod tidy
 ```
+
 ### 🧼 Formatting Before Every Push (do this for each exercise)
 
 Run one of these in the exercise folder (e.g., printalphabet/ or printreversealphabet/):
+
 ```bash
 gofmt -w .
 ```
+
 or
+
 ```bash
 gofumpt -w .
 ```
+
 Then commit & push.
+
 ## Let's Start!
+
 ## 🔤 `printalphabet`
 
 **Goal:** print the lowercase Latin alphabet on one line, then a newline.
@@ -399,6 +444,7 @@ Then commit & push.
 **Allowed function:** `github.com/01-edu/z01.PrintRune`
 
 # Solution:
+
 ```go
 package main
 
@@ -412,24 +458,30 @@ func main() {
 }
 
 ```
+
 ### ▶️ Usage
+
 ```
 $ go run .
 abcdefghijklmnopqrstuvwxyz
 $
 ```
+
 ---
+
 Then push only these files and remember to format(check above for the command):
 
 ```go
 go.mod
 printalphabet/main.go
 ```
+
 ---
 
 Note:
 All exercises (like printalphabet, printdigits, etc.) must be in their own folders inside `piscine-go/` and submitted from there.
-If Go command not found install, then install it 
+If Go command not found install, then install it
+
 ```bash
 sudo apt update
 #quick update
@@ -437,14 +489,19 @@ sudo apt install golang
 #this installs total packages
 go version #confirms the version installed
 ```
+
 ---
+
 ## 🧩 printreversealphabet
+
 ### 🧰 Instructions
 
 Write a program that prints the Latin alphabet in lowercase in reverse order (from z to a) on a single line.
 
 A line is a sequence of characters preceding the end-of-line character ('\n').
+
 ### Code
+
 ```go
 package main
 
@@ -458,15 +515,19 @@ func main() {
 }
 
 ```
+
 ### Next: remember to format and push only the files created:
-**File to submit:** `printreversealphabet/main.go`
----
+
+## **File to submit:** `printreversealphabet/main.go`
+
 ## Printdigits:
+
 ## Explanation:
 
 `for digit := '0'; digit <= '9'; digit++` - Loop through ASCII characters from '0' to '9'
 `z01.PrintRune(digit)` - Print each digit character using the allowed function <br>
 `z01.PrintRune('\n')` - Print a newline at the end
+
 ```go
 package main
 
@@ -480,15 +541,19 @@ func main() {
 }
 
 ```
+
 `go run printdigits/main.go`
-*Output:*
+_Output:_
 0123456789
+
 ### Next: remember to format and push only the files created:
-**File to submit:** `printdigits/main.go`
----
+
+## **File to submit:** `printdigits/main.go`
+
 # isnegative
 
 ## 📋 Instructions
+
 Write a function that prints `'T'` (true) on a single line if the `int` passed as parameter is negative, otherwise it prints `'F'` (false).
 
 **Level:** 6  
@@ -496,12 +561,14 @@ Write a function that prints `'T'` (true) on a single line if the `int` passed a
 **Allowed functions:** `github.com/01-edu/z01.PrintRune`, `--allow-builtin`
 
 ## 📝 Expected Function
+
 ```go
 func IsNegative(nb int) {
 }
 ```
 
 ## 💡 Solution
+
 ```go
 package piscine
 
@@ -518,17 +585,20 @@ func IsNegative(nb int) {
 ```
 
 ## 🔍 Explanation
+
 1. **`if nb < 0`** - Check if the number is negative
 2. **`z01.PrintRune('T')`** - Print 'T' for true (number is negative)
 3. **`z01.PrintRune('F')`** - Print 'F' for false (number is zero or positive)
 4. **`z01.PrintRune('\n')`** - Print a newline character after the result
 
 ## 🧪 Usage Example (To test locally) !!!! Pls skip this if you are not interested in testing and jump to 'How to Submit below'
+
 ```bash
 mkdir -p test #create a test folder
 cd test #moves you into the test folder 📁 created so you can create the main file below
 nano main.go # paste the test code below into this file
 ```
+
 ```go
 package main
 
@@ -540,9 +610,11 @@ func main() {
 	piscine.IsNegative(-1)  // Negative
 }
 ```
+
 `cd test` to make sure you are seeing `/piscine-go/test ` now Run it
 `go run .` <br>
-*📤 Expected Output*
+_📤 Expected Output_
+
 ```
 F
 F
@@ -550,15 +622,17 @@ T
 ```
 
 ## 🎯 Test Cases
-| Input | Output | Reason |
-|-------|--------|--------|
-| `1` | `F` | 1 is positive |
-| `0` | `F` | 0 is not negative |
-| `-1` | `T` | -1 is negative |
-| `42` | `F` | 42 is positive |
-| `-999` | `T` | -999 is negative |
+
+| Input  | Output | Reason            |
+| ------ | ------ | ----------------- |
+| `1`    | `F`    | 1 is positive     |
+| `0`    | `F`    | 0 is not negative |
+| `-1`   | `T`    | -1 is negative    |
+| `42`   | `F`    | 42 is positive    |
+| `-999` | `T`    | -999 is negative  |
 
 ## 📌 Key Points
+
 - Zero (0) is **not** considered negative, so it returns 'F'
 - Only numbers less than 0 return 'T'
 - Each result must be followed by a newline character
@@ -566,29 +640,36 @@ T
 - Function must be in the `piscine` package
 
 ## 🚀 How to Submit (remember to format)
+
 if you tested, make sure you go back to the `piscine-go` folder 📁 using this command `cd ..`
-Confirm you are back `~piscine-go` if so, you're good 2 go 👍 
+Confirm you are back `~piscine-go` if so, you're good 2 go 👍
+
 ```bash
 git add isnegative.go
 git commit -m "Add isnegative solution"
 git push
 ```
+
 ---
+
 # Printcomb
 
 ## 📋 Instructions
+
 Write a function that prints, in ascending order and on a single line: all unique combinations of three different digits so that, the first digit is lower than the second, and the second is lower than the third.
 These combinations are separated by a comma and a space.
 
-**Files to submit:** `printcomb.go`  
+**Files to submit:** `printcomb.go`
 
 ## 📝 Expected Function
+
 ```go
 func PrintComb () {
 }
 ```
 
 ## 💡 Solution
+
 ```go
 package piscine
 
@@ -601,7 +682,7 @@ func PrintComb() {
 				z01.PrintRune(i)
 				z01.PrintRune(j)
 				z01.PrintRune(k)
-				
+
 				// Don't print comma and space after the last combination (789)
 				if i != '7' || j != '8' || k != '9' {
 					z01.PrintRune(',')
@@ -616,14 +697,18 @@ func PrintComb() {
 ```
 
 ## 🔍 Explanation
+
 1. **First loop:** `i := '0'; i <= '7'` - First digit ranges from 0 to 7
 2. **Second loop:** `j := i + 1; j <= '8'` - Second digit starts from i+1 (ensuring i < j) up to 8
 3. **Third loop:** `k := j + 1; k <= '9'` - Third digit starts from j+1 (ensuring j < k) up to 9
 4. **Print combination:** Print all three digits
 5. **Comma and space:** Add ", " after each combination except the last one (789)
 6. **Newline:** Print '\n' at the end
+
 ## 🧪 Usage Example (To test locally) !!!! Pls skip this if you are not interested in testing and jump to 'How to Submit below'
+
 replace your previous test file `main.go` with this:
+
 ```go
 package main
 
@@ -635,20 +720,27 @@ func main() {
 	piscine.PrintComb()
 }
 ```
+
 `cd test` and Run it
 `go run .` <br>
-*📤 check Expected Output on your dashboard*
+_📤 check Expected Output on your dashboard_
+
 ## 🚀 How to Submit (remember to format)
+
 if you tested, make sure you go back to the `piscine-go` folder using this command `cd ..`
+
 ```bash
 By now you should have mastered the art of adding a file, commiting with a message and pushing.
 I think you gat this, thumbs up! 👍 😎
 If you see any error occurred check again and again, you probably made a mistake terminal is your friend.
 ```
+
 ---
+
 # 🧩 printcomb2
 
 ### 🧰 Instructions
+
 Write a function that prints **all possible combinations of two different two-digit numbers** (`00 01`, `00 02`, …, `98 99`) in **ascending order** on a single line.
 
 Each combination must be separated by a comma and a space, and the final output should end with a newline.
@@ -660,6 +752,7 @@ Each combination must be separated by a comma and a space, and the final output 
 ---
 
 ### ✅ Code (`printcomb2.go`)
+
 ```go
 package piscine
 
@@ -685,8 +778,11 @@ func PrintComb2() {
 }
 
 ```
+
 ### ▶️ Usage Example
+
 This is the test file below (replace main.go):
+
 ```go
 package main
 
@@ -697,21 +793,26 @@ func main() {
 }
 
 ```
+
 **Expected Output:**
+
 ```
 $ go run .
 00 01, 00 02, 00 03, ..., 98 99
 $
 ```
-*Always format your code before you push:*
+
+_Always format your code before you push:_
+
 ```bash
 gofmt -w .
 # or, if installed:
 gofumpt -w .
 ```
-**File to push:** `printcomb2/printcomb2.go`
----
-## Here's the solution for the `printnbr.go` 
+
+## **File to push:** `printcomb2/printcomb2.go`
+
+## Here's the solution for the `printnbr.go`
 
 📋 **Explanation:**
 
@@ -719,7 +820,7 @@ gofumpt -w .
 
 2. **Handle negative numbers:** If n is negative, print '-' and make n positive.
 
-3. **Recursive printing:** 
+3. **Recursive printing:**
    - If n >= 10, recursively call PrintNbr with n/10 to print all digits except the last
    - Print the last digit using `'0' + n%10`
 
@@ -753,34 +854,41 @@ func PrintNbr(n int) {
 	z01.PrintRune(rune('0' + n%10))
 }
 ```
+
 **Always make sure you format immediately after creating your file**
-use this command 
+use this command
+
 ```bash
 gofmt -w .
 ```
+
 ## 📤 **Expected Output:**
+
 ```
 -1230123
 ```
 
 ## 🎯 **Test Cases:**
-| Input | Output |
-|-------|--------|
-| `-123` | `-123` |
-| `0` | `0` |
-| `123` | `123` |
+
+| Input                  | Output                 |
+| ---------------------- | ---------------------- |
+| `-123`                 | `-123`                 |
+| `0`                    | `0`                    |
+| `123`                  | `123`                  |
 | `-9223372036854775808` | `-9223372036854775808` |
-| `9223372036854775807` | `9223372036854775807` |
+| `9223372036854775807`  | `9223372036854775807`  |
 
 ## ✅ **Key Points:**
+
 - Handles all possible int values including the minimum int (-9223372036854775808)
 - Uses recursion to print digits from left to right
 - Cannot use int64 conversion
 - Uses only z01.PrintRune for output
 
-🚀 Ready to submit!
----
-##  `printcombn.go` 
+## 🚀 Ready to submit!
+
+## `printcombn.go`
+
 📋 **Explanation:**
 
 1. **PrintCombN(n int):** Main function that initializes and starts the combination generation
@@ -790,6 +898,7 @@ gofmt -w .
 3. **printComb:** Prints a single combination and adds comma/space if not the last one
 
 ## 🎯 **Key Logic:**
+
 - For n=3: Last combination is 789 (digits 7,8,9)
 - For n=9: Last combination is 012345678 (digits 0,1,2,3,4,5,6,7,8)
 - Formula for last combination digit at position i: `10 - n + i`
@@ -862,8 +971,10 @@ func printComb(comb []int, n int) {
 }
 
 ```
+
 **Always make sure you format immediately after creating your file**
-use this command 
+use this command
+
 ```bash
 gofmt -w .
 ```
@@ -871,30 +982,37 @@ gofmt -w .
 ## 📤 **Expected Output:**
 
 **For n=1:**
+
 ```
 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 ```
 
 **For n=3:**
+
 ```
 012, 013, 014, 015, 016, 017, 018, 019, 023, ..., 689, 789
 ```
 
 **For n=9:**
+
 ```
 012345678, 012345679, ..., 123456789
 ```
 
 ## ✅ **Efficiency:**
+
 - Uses recursion with proper bounds to avoid unnecessary iterations
 - Only generates valid combinations (no backtracking needed)
 - Time complexity: O(C(10,n)) where C is combinations
 
-🚀 Ready to submit!
----
+## 🚀 Ready to submit!
+
 ### If you encounter Formatting error!!! then you forgot to format the go file
+
 ### If you encounter go mod init piscine error!! you skipped the first instruction
+
 ### If you encounter go run package error! go and delete the required github library installed inside your `go.mod` file it must only have two lines, delete the 3rd one:
+
 ```bash
 module piscine
 
@@ -902,13 +1020,17 @@ go 1.25.3
 
 require github.com/01-edu/z01 v0.2.0 // indirect #Delete this last line to clear that error
 ```
+
 ## If you are still struggling to understand for your Checkpoint Practice? After copy and pasting, try to Check the ReadME file in the 📁 titled **Learn Quest2** I hope that helps. GoodLuck!
 
-### Also check -README file in 📁 Resource for beginner-friendly guides. 
+### Also check -README file in 📁 Resource for beginner-friendly guides.
+
 ---
+
 # QUEST-3
+
 Excellent 👏 — this one introduces **pointers** 🧠
-Let’s make it super simple so you’ll *never* be afraid of pointers again.
+Let’s make it super simple so you’ll _never_ be afraid of pointers again.
 
 ---
 
@@ -917,7 +1039,7 @@ Let’s make it super simple so you’ll *never* be afraid of pointers again.
 > “Write a function that takes a **pointer to an int**, and makes that int equal to 1.”
 
 So the function doesn’t return anything —
-it just *changes* the number that was given **through a pointer**.
+it just _changes_ the number that was given **through a pointer**.
 
 ---
 
@@ -926,7 +1048,7 @@ it just *changes* the number that was given **through a pointer**.
 You have a box 📦 that contains a number — let’s call the box `n`.
 Normally, if you hand someone the **number itself**, they can’t change your box.
 
-But if you hand them the **key to your box** (the *address*),
+But if you hand them the **key to your box** (the _address_),
 they can open it and put a new number inside.
 
 That “key” is called a **pointer** 🔑
@@ -942,15 +1064,15 @@ func PointOne(n *int) {
 	*n = 1
 }
 ```
-**Now that you ve created the file, format it now**
----
+
+## **Now that you ve created the file, format it now**
 
 ### 🧒 Explanation
 
-* `n *int` → means:
-  “I’m not getting an integer directly — I’m getting a *pointer to* an integer.”
+- `n *int` → means:
+  “I’m not getting an integer directly — I’m getting a _pointer to_ an integer.”
 
-* `*n = 1` →
+- `*n = 1` →
   means: “go to that address and change what’s inside to 1.”
 
 ---
@@ -1003,7 +1125,7 @@ Just one file:
 ---
 
 Don’t panic — this one looks scary only because there are more `*`,
-but it’s the *same logic* as before, just more boxes 📦 inside boxes.
+but it’s the _same logic_ as before, just more boxes 📦 inside boxes.
 
 ---
 
@@ -1014,7 +1136,7 @@ but it’s the *same logic* as before, just more boxes 📦 inside boxes.
 
 In plain English:
 
-> “You get a key to a box, inside it there’s another box, and inside *that* one is the number — set it to 1.”
+> “You get a key to a box, inside it there’s another box, and inside _that_ one is the number — set it to 1.”
 
 ---
 
@@ -1027,8 +1149,8 @@ func UltimatePointOne(n ***int) {
 	***n = 1
 }
 ```
-**If you like no remember to format LOL**
----
+
+## **If you like no remember to format LOL**
 
 ## 🧒 Step-By-Step Explanation
 
@@ -1052,7 +1174,7 @@ b := &a  // b holds the address of a
 n := &b  // n holds the address of b
 ```
 
-### 4️⃣ The function takes a pointer to *that*
+### 4️⃣ The function takes a pointer to _that_
 
 ```go
 piscine.UltimatePointOne(&n)
@@ -1064,10 +1186,10 @@ So the argument `n` inside your function is actually `***int` (pointer to pointe
 
 ### 🧠 Inside the function:
 
-* `n` → pointer to pointer to pointer
-* `*n` → pointer to pointer
-* `**n` → pointer to int
-* `***n` → the integer itself ✅
+- `n` → pointer to pointer to pointer
+- `*n` → pointer to pointer
+- `**n` → pointer to int
+- `***n` → the integer itself ✅
 
 So `***n = 1` means:
 
@@ -1150,8 +1272,8 @@ func DivMod(a int, b int, div *int, mod *int) {
 	*mod = a % b
 }
 ```
-**Hope you remember to format**
----
+
+## **Hope you remember to format**
 
 ## 🧒 Explanation (Like Teaching a Child)
 
@@ -1163,16 +1285,16 @@ You know when you divide **13 ÷ 2** on paper?
 
 So:
 
-* Quotient (the result of division) = `6`
-* Remainder (what’s left) = `1`
+- Quotient (the result of division) = `6`
+- Remainder (what’s left) = `1`
 
 In Go:
 
-* `a / b` gives **quotient**
-* `a % b` gives **remainder**
+- `a / b` gives **quotient**
+- `a % b` gives **remainder**
 
 But the tricky part here is the **pointers**.
-We don’t print or return the results — we put them *inside the boxes* (the memory spots) that were given to us.
+We don’t print or return the results — we put them _inside the boxes_ (the memory spots) that were given to us.
 
 ---
 
@@ -1245,7 +1367,7 @@ One box holds **div**, the other holds **mod**.
 
 ---
 
-This one is just the *upgraded version* of **DivMod**, but now with **pointers everywhere** 🔁
+This one is just the _upgraded version_ of **DivMod**, but now with **pointers everywhere** 🔁
 
 ---
 
@@ -1254,9 +1376,9 @@ This one is just the *upgraded version* of **DivMod**, but now with **pointers e
 > “You’re given two pointers to integers, `a` and `b`.”
 > You must:
 >
-> * Divide the value inside `a` by the value inside `b`
-> * Store the **quotient** back inside `a`
-> * Store the **remainder** back inside `b`
+> - Divide the value inside `a` by the value inside `b`
+> - Store the **quotient** back inside `a`
+> - Store the **remainder** back inside `b`
 
 ---
 
@@ -1272,15 +1394,15 @@ func UltimateDivMod(a *int, b *int) {
 	*b = remainder
 }
 ```
-**gofmt -w .**
----
+
+## **gofmt -w .**
 
 ## 🧒 Explanation (as simple as possible)
 
 Think of:
 
-* `*a` → the number **inside box A**
-* `*b` → the number **inside box B**
+- `*a` → the number **inside box A**
+- `*b` → the number **inside box B**
 
 You don’t want to **return** anything —
 you just open both boxes, do your math, and put the results back inside.
@@ -1380,7 +1502,7 @@ Or say it like this:
 
 ---
 
-— welcome to **PrintStr**, one of the easiest but most *fundamental* exercises in Go strings and runes.
+— welcome to **PrintStr**, one of the easiest but most _fundamental_ exercises in Go strings and runes.
 
 Let’s make this simple and fun 👇
 
@@ -1405,8 +1527,8 @@ func PrintStr(s string) {
 	}
 }
 ```
-**I know you don tire for my reminder sorry**
----
+
+## **I know you don tire for my reminder sorry**
 
 ## 🧒 Explanation (Step by Step)
 
@@ -1431,8 +1553,8 @@ That’s Go’s way of saying:
 
 > “Go through every character (rune) inside the string `s`.”
 
-* `_` = ignore the index number
-* `char` = the current character (like `'H'`, `'e'`, `'l'`, etc.)
+- `_` = ignore the index number
+- `char` = the current character (like `'H'`, `'e'`, `'l'`, etc.)
 
 ---
 
@@ -1445,7 +1567,7 @@ so when we do it in a loop, it prints the whole string, letter by letter.
 
 ### 4️⃣ Why not just `fmt.Println(s)`?
 
-Because this challenge wants you to *manually* print every rune using `z01.PrintRune`, not the easy way 😄
+Because this challenge wants you to _manually_ print every rune using `z01.PrintRune`, not the easy way 😄
 
 You’re training to understand **how iteration works on strings** in Go.
 
@@ -1490,7 +1612,9 @@ Hello World!$
 > and hands it to z01.PrintRune like giving letters to a printer.” 🖨️
 
 ---
+
 ## StrLen
+
 Excellent 🔢 — this one teaches you **how to count characters (runes)** in a string manually.
 It’s very simple, but it’s a key building block for string manipulation in Go.
 
@@ -1509,8 +1633,8 @@ func StrLen(s string) int {
 	return count
 }
 ```
-**make I keep mute here!**
----
+
+## **make I keep mute here!**
 
 ## 🧠 Step-by-Step Explanation
 
@@ -1557,7 +1681,7 @@ Good question!
 
 So if your string contains special characters like `é`, `ñ`, or emojis 😊
 `len(s)` gives the wrong answer (since some runes use multiple bytes).
-But `for range` counts each *rune* properly.
+But `for range` counts each _rune_ properly.
 
 ---
 
@@ -1638,12 +1762,12 @@ Imagine you have two boxes:
 | `a` | 0     |
 | `b` | 1     |
 
-Each variable holds a **pointer** — meaning a *reference* to the box, not the box itself.
+Each variable holds a **pointer** — meaning a _reference_ to the box, not the box itself.
 
 So:
 
-* `*a` → open box A (get the number inside)
-* `*b` → open box B (get the number inside)
+- `*a` → open box A (get the number inside)
+- `*b` → open box B (get the number inside)
 
 ---
 
@@ -1728,7 +1852,7 @@ Like this in real life:
 
 ---
 
-This one — **StrRev** — teaches you how to *reverse* a string in Go!
+This one — **StrRev** — teaches you how to _reverse_ a string in Go!
 That means taking `"Hello World!"` and flipping it backwards to `"!dlroW olleH"`.
 
 ---
@@ -1749,8 +1873,8 @@ func StrRev(s string) string {
 	return string(runes)
 }
 ```
-**format pls**
----
+
+## **format pls**
 
 ## 🧒 Step-by-Step Explanation
 
@@ -1770,7 +1894,7 @@ After:  o l l e H
 ### 2️⃣ Why convert to `[]rune`?
 
 In Go, a **string** is a list of **bytes**, not characters.
-Some letters (like `é` or emojis 😊) take *multiple bytes*,
+Some letters (like `é` or emojis 😊) take _multiple bytes_,
 so we convert it to a **rune slice** first to avoid breaking them:
 
 ```go
@@ -1793,9 +1917,9 @@ for i := 0; i < length/2; i++ {
 
 We:
 
-* start from the **beginning** (`i`)
-* swap it with the **end** (`length-1-i`)
-* keep doing that until we reach the middle
+- start from the **beginning** (`i`)
+- swap it with the **end** (`length-1-i`)
+- keep doing that until we reach the middle
 
 It’s like turning the word around in a mirror!
 
@@ -1928,9 +2052,9 @@ for _, r := range s {
 }
 ```
 
-* `range s` → loop through every character in the string
-* `r-'0'` → convert rune (like `'5'`) to number
-* multiply by 10 each time (to “shift left” one place)
+- `range s` → loop through every character in the string
+- `r-'0'` → convert rune (like `'5'`) to number
+- multiply by 10 each time (to “shift left” one place)
 
 ---
 
@@ -1992,7 +2116,7 @@ $ go run .
 Basicatoi2 is a **smarter version of `BasicAtoi`** 👨🏽‍🏫
 
 It’s the same idea — converting `"12345"` into the integer `12345` —
-but **this time**, you must check for *invalid characters* too (like spaces or letters).
+but **this time**, you must check for _invalid characters_ too (like spaces or letters).
 
 If the string contains anything that’s not a digit (`0–9`), you must return **0**.
 
@@ -2040,9 +2164,9 @@ if r < '0' || r > '9' {
 
 This line filters out:
 
-* letters like `'A'` or `'h'`
-* spaces `' '`
-* punctuation `'.'`, `'!'`, etc.
+- letters like `'A'` or `'h'`
+- spaces `' '`
+- punctuation `'.'`, `'!'`, etc.
 
 ---
 
@@ -2056,9 +2180,9 @@ result = result*10 + int(r-'0')
 
 So `"123"` becomes:
 
-* Step 1: 0×10 + 1 = 1
-* Step 2: 1×10 + 2 = 12
-* Step 3: 12×10 + 3 = 123 ✅
+- Step 1: 0×10 + 1 = 1
+- Step 2: 1×10 + 2 = 12
+- Step 3: 12×10 + 3 = 123 ✅
 
 ---
 
@@ -2121,7 +2245,7 @@ $ go run .
 
 `atoi.go` — this one’s the **final boss** of the Atoi family 💪
 
-You now have to handle **signs (+ / -)** *and* **invalid characters**.
+You now have to handle **signs (+ / -)** _and_ **invalid characters**.
 Let’s break it down cleanly 👇
 
 ---
@@ -2183,9 +2307,9 @@ if i == 0 && (r == '+' || r == '-') {
 
 ✅ This means:
 
-* if the **first character** is `+`, keep `sign = 1`
-* if it’s `-`, make `sign = -1`
-* skip over the sign (don’t treat it as a digit)
+- if the **first character** is `+`, keep `sign = 1`
+- if it’s `-`, make `sign = -1`
+- skip over the sign (don’t treat it as a digit)
 
 ---
 
@@ -2283,8 +2407,9 @@ $ go run .
 > (And always multiply by the sign at the end!)
 
 ---
-Final Quest -3 excercise 
- **first sorting algorithm** in Go! 🔢
+
+Final Quest -3 excercise
+**first sorting algorithm** in Go! 🔢
 Let’s make it crystal clear and easy to grasp.
 
 ---
@@ -2336,9 +2461,9 @@ for i := 0; i < len(table)-1; i++ {
 
 This means:
 
-* `i` picks a number (say the first one)
-* `j` looks at every number after `i`
-* we compare and swap if needed
+- `i` picks a number (say the first one)
+- `j` looks at every number after `i`
+- we compare and swap if needed
 
 ---
 
@@ -2409,5 +2534,7 @@ $ go run .
 That’s **bubble sort / selection sort logic**, and it’s all you need for this task.
 
 ---
+
 #Keep refreshing!!! solutions not yet uploaded!
+
 # GO TO LEARN QUEST4 - Try to understand the explanation and prepare for checkpoint 2
